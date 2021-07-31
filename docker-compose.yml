@@ -1,0 +1,21 @@
+version: "3"
+services:
+  rtmp_ffmpg:
+    build:
+      context: ./rtmp
+    volumes:
+      - hls:/var/www/vhosts/broadcast_streaming
+    ports:
+      - 1935:1935
+  web:
+    build:
+      context: ./web
+    volumes:
+      - hls:/var/www/vhosts/broadcast_streaming
+      - ./web/index.html:/usr/share/nginx/html/index.html
+    depends_on:
+      - rtmp_ffmpg
+    ports:
+      - 80:80
+volumes:
+  hls:

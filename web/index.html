@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>local rtmp server</title>
+    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet"> <!-- Video.js 動画埋め込み用のライブラリ -->
+  </head>
+
+  <body>
+    <h1>RTMPテスト配信</h1>
+    <div class="main-container">
+      <video-js id=example-video width=640 height=360 class="vjs-default-skin" controls>
+        <source src="http://localhost/live_stream/vkpfevjwrpvjr326ioj83_low.m3u8" type="application/x-mpegURL">
+      </video-js>
+    </div>
+    <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
+    <script>
+      var player = videojs('example-video');
+    </script>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 100px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>
